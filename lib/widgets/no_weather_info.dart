@@ -1,0 +1,25 @@
+import 'package:flutter/material.dart';
+
+import '../main.dart';
+
+class NoWeatherInfoBody extends StatelessWidget {
+  const NoWeatherInfoBody({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [getThemeColor(null), Colors.white],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+          ),
+        ),
+        child: const Center(
+          child: Text('There is no weather, start searching now!'),
+        ),
+      ),
+    );
+  }
+}
