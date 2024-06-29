@@ -32,8 +32,7 @@ class HomePage extends StatelessWidget {
       body: BlocBuilder<GetWeatherCubit, WeatherState>(
         builder: (context, state) {
           if (state is WeatherLoadedState) {
-            // ignore: prefer_const_constructors
-            return WeatherInfoBody();
+            return WeatherInfoBody(weatherModel: BlocProvider.of<GetWeatherCubit>(context).weatherModel!,);
           } else if (state is WeatherFailureState) {
             return const NoWeatherInfoBody();
           } else {

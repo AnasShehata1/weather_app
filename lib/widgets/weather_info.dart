@@ -1,27 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:weatherapp/cubits/get_weather_cubit/get_weather_cubit.dart';
+// import 'package:flutter_bloc/flutter_bloc.dart';
+// import 'package:weatherapp/cubits/get_weather_cubit/get_weather_cubit.dart';
+import 'package:weatherapp/methods/get_theme_color.dart';
 import 'package:weatherapp/models/weather_model.dart';
 import 'package:weatherapp/widgets/day_widget.dart';
-import '../main.dart';
 import 'history_temp.dart';
 
 class WeatherInfoBody extends StatelessWidget {
-  const WeatherInfoBody({super.key});
-
+  const WeatherInfoBody({super.key, required this.weatherModel});
+  final WeatherModel weatherModel;
   @override
   Widget build(BuildContext context) {
-    WeatherModel weatherModel =
-        BlocProvider.of<GetWeatherCubit>(context).weatherModel!;
+    // WeatherModel weatherModel =
+    //     BlocProvider.of<GetWeatherCubit>(context).weatherModel!;
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [
               getThemeColor(weatherModel.currentCondition),
-              // getThemeColor(weatherModel.currentCondition)[800]!,
-              // getThemeColor(weatherModel.currentCondition)[700]!,
-              // getThemeColor(weatherModel.currentCondition)[600]!,
               getThemeColor(weatherModel.currentCondition)[500]!,
               getThemeColor(weatherModel.currentCondition)[400]!,
               getThemeColor(weatherModel.currentCondition)[300]!,

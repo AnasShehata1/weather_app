@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../main.dart';
+import 'package:weatherapp/methods/get_theme_color.dart';
 
 class NoWeatherInfoBody extends StatelessWidget {
   const NoWeatherInfoBody({super.key});
