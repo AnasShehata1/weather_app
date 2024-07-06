@@ -2,13 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weatherapp/cubits/get_weather_cubit/get_weather_cubit.dart';
 import 'package:weatherapp/cubits/get_weather_cubit/get_weather_states.dart';
-import 'package:weatherapp/database/create_database.dart';
 import 'package:weatherapp/methods/get_theme_color.dart';
 import 'package:weatherapp/views/home_page.dart';
 
 void main() {
   runApp(const WeatherApp());
-  createDatabase();
 }
 
 class WeatherApp extends StatelessWidget {

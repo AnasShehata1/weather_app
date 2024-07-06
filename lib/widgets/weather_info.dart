@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 // import 'package:weatherapp/cubits/get_weather_cubit/get_weather_cubit.dart';
 import 'package:weatherapp/methods/get_theme_color.dart';
 import 'package:weatherapp/models/weather_model.dart';
-import 'package:weatherapp/widgets/day_widget.dart';
-import 'history_temp.dart';
+import 'package:weatherapp/widgets/forecast_day.dart';
+import 'hour_forecast.dart';
 
 class WeatherInfoBody extends StatelessWidget {
   const WeatherInfoBody({super.key, required this.weatherModel});
@@ -53,22 +53,31 @@ class WeatherInfoBody extends StatelessWidget {
                 ),
               ),
             ),
-            Text(weatherModel.currentCondition),
+            Text(
+              weatherModel.currentCondition,
+              style: const TextStyle(fontSize: 28, color: Colors.black),
+            ),
             const SizedBox(
               height: 10,
             ),
-            Text('${weatherModel.currentTemp.round()} \u00b0'),
+            Text(
+              '${weatherModel.currentTemp.round()} \u00b0',
+              style: const TextStyle(fontSize: 22, color: Colors.black),
+            ),
             const SizedBox(
               height: 10,
             ),
-            Text('Last updated : ${weatherModel.updatedAt.substring(11)}'),
+            Text(
+              'Last updated : ${weatherModel.updatedAt.substring(11)}',
+              style: const TextStyle(fontSize: 22, color: Colors.black),
+            ),
             const SizedBox(
-              height: 40,
+              height: 30,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                DayWidget(
+                ForecastDay(
                   day: 'Tomorrow',
                   avg: weatherModel.tomorrowTemp,
                   min: weatherModel.tomorrowMinTemp,
@@ -76,7 +85,7 @@ class WeatherInfoBody extends StatelessWidget {
                   conditionIcon: weatherModel.tomorrowConditionIcon,
                   condition: weatherModel.tomorrowCondition,
                 ),
-                DayWidget(
+                ForecastDay(
                   day: 'After Tomorrow',
                   avg: weatherModel.afterTomorrowTemp,
                   min: weatherModel.afterTomorrowMinTemp,
@@ -87,32 +96,32 @@ class WeatherInfoBody extends StatelessWidget {
               ],
             ),
             const Spacer(
-              flex: 2,
+              flex: 6,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                HistoryTemp(
+                HourForecast(
                   time: '9 AM',
                   conditionIcon: weatherModel.weatherCondIconAt9am,
                   temp: weatherModel.weatherCondTempAt9am,
                 ),
-                HistoryTemp(
+                HourForecast(
                   time: '12 PM',
                   conditionIcon: weatherModel.weatherCondIconAt12pm,
                   temp: weatherModel.weatherCondTempAt12pm,
                 ),
-                HistoryTemp(
+                HourForecast(
                   time: '3 PM',
                   conditionIcon: weatherModel.weatherCondIconAt3pm,
                   temp: weatherModel.weatherCondTempAt3pm,
                 ),
-                HistoryTemp(
+                HourForecast(
                   time: '6 PM',
                   conditionIcon: weatherModel.weatherCondIconAt6pm,
                   temp: weatherModel.weatherCondTempAt6pm,
                 ),
-                HistoryTemp(
+                HourForecast(
                   time: '9 PM',
                   conditionIcon: weatherModel.weatherCondIconAt9pm,
                   temp: weatherModel.weatherCondTempAt9pm,
@@ -120,7 +129,7 @@ class WeatherInfoBody extends StatelessWidget {
               ],
             ),
             const Spacer(
-              flex: 2,
+              flex: 8,
             ),
           ],
         ),
