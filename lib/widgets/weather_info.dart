@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-// import 'package:flutter_bloc/flutter_bloc.dart';
-// import 'package:weatherapp/cubits/get_weather_cubit/get_weather_cubit.dart';
 import 'package:weatherapp/helper/get_theme_color.dart';
 import 'package:weatherapp/models/weather_model.dart';
 import 'package:weatherapp/widgets/forecast_day.dart';
